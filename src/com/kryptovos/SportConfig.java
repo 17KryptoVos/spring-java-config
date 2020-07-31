@@ -7,6 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:mylogger.properties")
+@PropertySource("classpath:sport.properties")
 public class SportConfig {
 
     // Define logger

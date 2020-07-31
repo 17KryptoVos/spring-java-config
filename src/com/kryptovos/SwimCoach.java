@@ -1,9 +1,17 @@
 package com.kryptovos;
 
-public class SwimCoach implements Coach{
+import org.springframework.beans.factory.annotation.Value;
 
-//    No autowiring needed because lack of @Component
+public class SwimCoach implements Coach {
+
+    //    No autowiring needed because lack of @Component
     private FortuneService fortuneService;
+
+    @Value("${foo.team}")
+    private String team;
+
+    @Value("${foo.email}")
+    private String email;
 
     public SwimCoach(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
@@ -17,5 +25,13 @@ public class SwimCoach implements Coach{
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
